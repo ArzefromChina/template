@@ -22,6 +22,12 @@ version = properties("pluginVersion")
 // Configure project's dependencies
 repositories {
     mavenCentral()
+    jcenter()
+    google()
+}
+
+dependencies {
+    compileOnly(files("lib/wizard-template.jar"))
 }
 
 // Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin

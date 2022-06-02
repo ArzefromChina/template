@@ -1,18 +1,25 @@
-<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.arzefromchina.template</id>
-    <name>template</name>
-    <vendor>arzefromchina</vendor>
+    <id>com.vesync.template</id>
+    <name>VSTemplatePlus</name>
+    <vendor>VS</vendor>
 
+    <!-- Product and plugin compatibility requirements -->
+    <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.modules.java</depends>
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.arzefromchina.template.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.arzefromchina.template.services.MyProjectService"/>
+        <applicationService serviceImplementation="com.github.arzefromchina.template.services.MyApplicationService" />
+        <projectService serviceImplementation="com.github.arzefromchina.template.services.MyProjectService" />
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.arzefromchina.template.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+        <listener class="com.github.arzefromchina.template.listeners.MyProjectManagerListener" topic="com.intellij.openapi.project.ProjectManagerListener" />
     </applicationListeners>
+
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider implementation="other.VSMvvmProvider" />
+    </extensions>
 </idea-plugin>
