@@ -1,4 +1,4 @@
-package other.mvvm.activity.src.app_package
+package com.github.arzefromchina.template.mvvm.activity.src.pkg
 
 /**
  * Author: Arze
@@ -11,14 +11,15 @@ package other.mvvm.activity.src.app_package
 fun mvvmViewModel(
     packageName: String,
     activityClass: String
-) = """
-package ${packageName}
+) = """package $packageName
+
 import com.vesync.base.BaseViewModel
 import android.app.Application
+
 class ${activityClass}ViewModel(application: Application) : BaseViewModel(application) {
     
-   fun back() {
-      finish()
-   }
+    fun back() {
+        finish()
+    }
 } 
 """

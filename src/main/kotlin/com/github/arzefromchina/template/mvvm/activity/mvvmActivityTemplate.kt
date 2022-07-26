@@ -1,6 +1,7 @@
-package other.mvvm.activity
+package com.github.arzefromchina.template.mvvm.activity
 
 import com.android.tools.idea.wizard.template.*
+import java.util.*
 
 /**
  * Author: Arze
@@ -10,14 +11,24 @@ import com.android.tools.idea.wizard.template.*
  * <author> <time> <version> <desc>
  * Arze 2022/6/2 1.0
  */
+@OptIn(ExperimentalStdlibApi::class)
 val mvvmActivityTemplate
     get() = template {
-        revision = 1
+
+        try {
+            revision = 1
+        } catch (e: Exception) {
+
+        } catch (e1: Error) {
+
+        }
+
         name = "VS MVVM Activity"
         description = "适用于VS MVVM框架的Activity"
-
         category = Category.Activity
         formFactor = FormFactor.Mobile
+
+
         screens = listOf(
             WizardUiContext.ActivityGallery,
             WizardUiContext.MenuEntry,
@@ -45,7 +56,7 @@ val mvvmActivityTemplate
             default = "activity_main"
             help = "请输入布局的名字"
             constraints = listOf(Constraint.LAYOUT, Constraint.UNIQUE, Constraint.NONEMPTY)
-            suggest = { activityToLayout(activityClass.value.toLowerCase()) }
+            suggest = { activityToLayout(activityClass.value.lowercase(Locale.getDefault())) }
         }
 
         val packageName = defaultPackageNameParameter
@@ -56,23 +67,29 @@ val mvvmActivityTemplate
             TextFieldWidget(layoutName),
             PackageNameWidget(packageName)
         )
-//        thumb { File("logo.png") }
+
+        thumb = {
+            Thumb.NoThumb
+        }
+
         recipe = { data: TemplateData ->
             mvvmActivityRecipe(
                 data as ModuleTemplateData,
                 activityClass.value,
-                componentName.value,
+                "health_device_",
                 layoutName.value,
                 packageName.value
             )
         }
+
     }
+
 
 val defaultPackageNameParameter
     get() = stringParameter {
         name = "Package name"
         visible = { !isNewModule }
-        default = "com.neo.myapp"
+        default = "com.vesync"
         constraints = listOf(Constraint.PACKAGE)
         suggest = { packageName }
     }

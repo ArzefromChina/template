@@ -1,9 +1,9 @@
-package other
+package com.github.arzefromchina.template
 
 
 import com.android.tools.idea.wizard.template.Template
 import com.android.tools.idea.wizard.template.WizardTemplateProvider
-import other.mvvm.activity.mvvmActivityTemplate
+import com.github.arzefromchina.template.mvvm.activity.mvvmActivityTemplate
 
 /**
  * Author: Arze
@@ -17,6 +17,6 @@ class VSMvvmProvider : WizardTemplateProvider() {
 
     override fun getTemplates(): List<Template> {
 
-        return  mutableListOf(mvvmActivityTemplate)
+        return mutableListOf(mvvmActivityTemplate)
     }
 }

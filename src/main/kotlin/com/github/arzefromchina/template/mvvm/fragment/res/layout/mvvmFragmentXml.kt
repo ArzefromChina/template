@@ -1,6 +1,6 @@
-package other.mvvm.activity.res.layout
+package com.github.arzefromchina.template.mvvm.fragment.res.layout
 
-import other.mvvm.headToLower
+import com.github.arzefromchina.template.mvvm.headToLower
 
 /**
  * Author: Arze

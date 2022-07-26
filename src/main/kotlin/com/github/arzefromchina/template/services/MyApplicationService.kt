@@ -1,6 +1,6 @@
 package com.github.arzefromchina.template.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.arzefromchina.template.MyBundle
 
 class MyApplicationService {
 
